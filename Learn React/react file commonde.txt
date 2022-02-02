@@ -1,0 +1,79 @@
+====> npx create-react-app <project name>
+====> yarn start or npm start : to push the code to web browser
+
+------------------------------------------------ Connect my local project to github repo -------
+* go to the folder locally
+* git remote add origin https://github.com/ManelDjehiche/monsters-rolodex.git
+
+------------------------------------------------ Add webpage (for github hosting)---------------
+* yarn add gh-pages
+* configure the package.json : add homepage (with react pro montioned in the course)
+* configure scriot in package.json : add some commond (with react pro montioned in the course) github to host website
+
+------------------------------------------------ Ressources to check ---------------------------
+a) https://reactjs.org/docs/events.html
+------------------------------------------------ Note ------------------------------------------
+
+1) to be a good react developer you should define three important points before start:
+	1- Decide the components: it should be hererachic architecture from the principal file (app.js) 
+                                  in the top to the smallest components as ends of the three (feuille de l'arbre), 
+                                  the principle file of react calls directly the status variable, then components will
+                                  transform its value by props or children.
+                     
+	2- Decide the statement where it lives: it means where should i call the state.
+	3- What change when state changes
+
+2) Is react synchronous or asynchronous?
+   as we know react is a library of javascript. So events and promises are asynhronous and we need to make them synchronous, because they are asynchronous. 
+   when we do for example a onChange function in react and we add after it a console.log to the text we have written,
+   it will not wait for, it will print the text empty.. this is asynchronous.
+   To make it synchronous we gonna add inside the funtion the synchronous.
+
+3) Does react edit the original dom?
+   React in reality doent edit the original dom, he has a virutal dom whitch is connected with the original one, 
+   its like the virtual one send what it wants to show to the original : Hiii, Can you please show this...!
+   because function of events, keys.. doenst appear in the inspect element. because they are in the virtual dom not the original one.
+
+4) what is jxs extention?
+   jsx is a file extension used by react to react component files. It allowes to use js code inside html code easier.
+   Actualy, jsx has its syntaxe not like html, most of time it uses camelcase, for example in the usual html we use "onchange" 
+   but in jsx we use "onChange", just a note that we can use jsx code as camelcase in the ordinary js file, but its good to do extension as
+   jxs for component files
+
+5) how do I organise files in react project?
+   for every component create folde, whitch contain jsx file ans style file, for example for card component, so :
+   components>card> card.component.jsx + card.style.css
+   and the cardList gonna be a component also whitch contains list of card in loop... thats the herarchic of components, thats the most
+   important part we should define in the begenning of the project.
+
+6) How event works in react ? 
+   Let me explain a little bit how event happens in react, in reality when the frontend receives an event from the user, react will see that 
+   and create an synthetic event, so what is a synthetic event? simply its a fake event or intermediate event between the original dom and 
+   the code react whitch treat this event like : Hiii, there is an event in the dom! so what we do.. a synthetic event is using jsx code like onClick, onChange..
+
+7) Filtering state?
+   note : instead or pasing this.state.name  we do const name = this.state.name then we use name in our code.
+   there are a predifined method which do filtering of array, filter()
+
+8) the power of react is that he knows when he calls render() method which clean div and append on it again, (one single page) then it looks like you 
+   changed the page, but in reality you just render it.
+
+9) Why we dont change states in components?
+   let me explain before how data flows in the tree of react, it flows in only one way, from the to to down only, so if many components use the state
+   so the state should be edited in the top of the treen (the root) so it can flow to down and be used by all components.
+   When you edit a state in on components, so it can flow down only to less levels and not to components of the same level, neither the top.
+   Thats why we edit always the state in the princpale file (app.js) which is the root, then we send it a props to the components.
+
+
+10) Arrow functions: In the previous video, we learned about arrow functions and binding in React. 
+    A good rule of thumb is this: Use arrow functions on any class methods you define and aren't part of React (i.e. render(), componentDidMount()).
+    If you want to learn more about this, have a read here: https://reactjs.org/docs/handling-events.html
+
+11) Difference between react and react-dom library?
+    btw, you can import CDN package from:
+		*https://unpkg.com/react@16.8.6/umd/react.development.js
+		*https://unpkg.com/react-dom@16.8.6/umd/react-dom.development.js
+    then i used them an i've called the React. and ReactDOM. directly using javascript vanilla code,
+    as a resume, what react does is allows to call object and put them into html objects, then reactDOM allows to display that to be shwon in the browser.
+
+12) What if you have versions issue in react libraries, how can you fix them?
